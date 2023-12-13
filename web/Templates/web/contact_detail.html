@@ -1,0 +1,74 @@
+<!-- contact_detail.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Detail</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ecf0f1;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #2ecc71;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        main {
+            background-color: #fff;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        footer {
+            background-color: #2ecc71;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Contact Detail</h1>
+    </header>
+
+    <main>
+        <p>Name: {{ contact.name }}</p>
+        <p>Email: {{ contact.email }}</p>
+        <p>Phone Number: {{ contact.phone_number }}</p>
+
+        <a href="{% url 'contact_list' %}">Back to Contact List</a>
+        <a href="{% url 'contact_form' pk=contact.pk %}">Edit Contact</a>
+    </main>
+
+    <!-- Footer -->
+    <footer>Created by Krishna Sahith Poruri</footer>
+</body>
+</html>

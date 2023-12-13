@@ -1,0 +1,81 @@
+<!-- contact_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Management</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        footer {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Contact Management</h1>
+    </header>
+
+    <ul>
+        {% for contact in contacts %}
+            <li>
+                {{ contact.name }} - {{ contact.email }} - {{ contact.phone_number }}
+                <a href="{% url 'contact_update' contact.pk %}">Update</a>
+                <a href="{% url 'contact_delete' contact.pk %}">Delete</a>
+                <a href="{% url 'contact_detail' contact.pk %}">View Details</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'contact_create' %}">Add Contact</a>
+
+    <!-- Footer -->
+    <footer>Created by Krishna Sahith Poruri</footer>
+</body>
+</html>

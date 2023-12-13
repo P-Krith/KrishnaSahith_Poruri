@@ -1,0 +1,19 @@
+<!-- contact_form.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if contact %}Edit Contact{% else %}Add Contact{% endif %}</title>
+    <!-- Include your stylesheets or use inline styles here -->
+</head>
+<body>
+    <h1>{% if contact %}Edit Contact{% else %}Add Contact{% endif %}</h1>
+
+    <form method="post" action="{% if contact %}{% url 'contact_form' pk=contact.pk %}{% else %}{% url 'contact_form' %}{% endif %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+    <a href="{% url 'contact_list' %}">Back to Contact List
